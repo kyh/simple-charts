@@ -56,7 +56,7 @@ var barChart = new BarChart(barChartData, barChartConfig);
 
 setTimeout(function(){
 	var updatedData = barChartData.concat([
-		{ name: 'Aug', data: 25 },
+		{ name: 'Aug', data: 70 },
 		{ name: 'Sep', data: 14 }
 	]);
 	barChart.updateData(updatedData);

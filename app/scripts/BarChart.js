@@ -8,7 +8,8 @@ function BarChart(data, config){
 		height = config.chartHeight - margin.top - margin.bot,
 		width = config.chartWidth - margin.left - margin.right;
 
-	var SVG = setupGraph(config);
+	setupGraph(data);
+	var SVG = getSVGChart(config.elementID);
 	var AXIS = generateAxis(SVG);
 	var BARS = generateBars(SVG, data);
 
@@ -25,21 +26,19 @@ function BarChart(data, config){
 		var _svg = self.chart.barChart;
 		self.data = newData;
 		removeAllBars(_svg, function(){
-			generateScales(newData);
+			setupGraph(newData);
+			_svg.selectAll('g.grid.axis')
+				.transition().duration(800).ease("sin-in-out")
+				.call(yAxis);
 			generateBars(_svg, newData);
 		});
 	}
 
-	function setupGraph(config){
-		generateScales(data);
-		yAxis = d3.svg.axis()
-			.scale(yScale)
-			.orient('left')
-			.ticks(axis.y.ticks)
-			.outerTickSize(0)
-			.tickSize(-width);
-
-		return getSVGChart(config.elementID);
+	function setupGraph(_data){
+		var scales = generateScales(_data);
+		xScale = scales.xScale;
+		yScale = scales.yScale;
+		yAxis = generateTicks(yScale);
 	}
 
 	function getSVGChart(elementID){
@@ -80,13 +79,23 @@ function BarChart(data, config){
 	}
 
 	function generateScales(_data){
-		xScale = d3.scale.ordinal()
-			.domain(_data.map(function(d) { return d.name; }))
-			.rangeRoundBands([0, width], 0.5);
+		return {
+			'xScale': d3.scale.ordinal()
+				.domain(_data.map(function(d) { return d.name; }))
+				.rangeRoundBands([0, width], 0.5),
+			'yScale': d3.scale.linear()
+				.domain([0, d3.max(_data, function(d) { return d.data; })])
+				.range([height, 0])
+		}
+	}
 
-		yScale = d3.scale.linear()
-			.domain([0, d3.max(_data, function(d) { return d.data; })])
-			.range([height, 0]);
+	function generateTicks(_yScale){
+		return d3.svg.axis()
+			.scale(yScale)
+			.orient('left')
+			.ticks(axis.y.ticks)
+			.outerTickSize(0)
+			.tickSize(-width);
 	}
 
 	function generateBars(_svg, _data){
