@@ -77,19 +77,26 @@ body {
   }
 }
 
+// CHARTS --------------
+$primary-color:   #2CC5C6;
+$grey-light:      #F1F3F2;
+$grey-dark:       #E3E9E9;
+$grid-line-color: #EEE;
+$grid-tick-color: #EFEFEF;
+
 .chart {
   .axis {
     path {
       fill: none;
     }
     line {
-      stroke: #eee;
+      stroke: $grid-line-color;
       shape-rendering: crispEdges;
     }
     &.grid {
       .tick {
         line {
-          stroke: #EFEFEF;
+          stroke: $grid-tick-color;
           stroke-dasharray: 2,2;
         }
       }
@@ -111,13 +118,13 @@ body {
       transition: fill 100ms;
     }
     &:nth-child(even) .bar{
-      fill: rgb(227, 233, 233);
+      fill: $grey-dark;
     }
     &:nth-child(odd) .bar{
-      fill: rgb(241, 243, 242);
+      fill: $grey-light;
     }
     &:hover .bar, &:hover .labels {
-      fill: #2CC5C6;
+      fill: $primary-color;
     }
   }
 }
@@ -125,7 +132,21 @@ body {
 #line-chart{
   .line {
     fill: none;
-    stroke: steelblue;
+    stroke: $grey-dark;
     stroke-width: 1.5px;
+  }
+  .point {
+    fill: $primary-color;
+    stroke-width: 2px;
+    stroke: white;
+  }
+  .labels {
+    -webkit-transition: fill 200ms;
+    transition: fill 200ms;
+  }
+  .group {
+    &:hover .labels {
+      fill: $primary-color;
+    }
   }
 }

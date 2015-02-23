@@ -71,6 +71,12 @@ var lineChartConfig = {
 			ticks: 8
 		}
 	},
+	classes: {
+		group: 'group',
+		point: 'point',
+		line: 'line',
+		label: 'labels'
+	},
 	margin: {
 	    top: 20,
 	    bot: 30,
