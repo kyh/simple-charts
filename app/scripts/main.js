@@ -62,3 +62,22 @@ setTimeout(function(){
 	barChart.updateData(updatedData);
 }, 5000);
 
+var lineChartConfig = {
+	elementID: '#line-chart',
+	chartWidth: $('.line-chart-container')[0].offsetWidth,
+	chartHeight: 400,
+	axis: {
+		y: {
+			ticks: 8
+		}
+	},
+	margin: {
+	    top: 20,
+	    bot: 30,
+	    left: 30,
+	    right: 0
+	}
+};
+
+var lineChart = new LineChart(barChartData, lineChartConfig);
+

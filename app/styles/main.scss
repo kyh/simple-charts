@@ -77,27 +77,7 @@ body {
   }
 }
 
-#bar-chart{
-  .bar-group {
-    .bar {
-      -webkit-transition: fill 333ms;
-      transition: fill 333ms;
-    }
-    .labels {
-      -webkit-transition: fill 100ms;
-      transition: fill 100ms;
-    }
-    &:nth-child(even) .bar{
-      fill: rgb(227, 233, 233);
-    }
-    &:nth-child(odd) .bar{
-      fill: rgb(241, 243, 242);
-    }
-    &:hover .bar, &:hover .labels {
-      fill: #2CC5C6;
-    }
-  }
-  
+.chart {
   .axis {
     path {
       fill: none;
@@ -118,10 +98,34 @@ body {
   .axis text, .labels {
     font-size: 10px;
   }
+}
 
-  // .axis path {
-  //   stroke: none;
-  // }
-  
-  // .line { fill: #eee }
+#bar-chart{
+  .bar-group {
+    .bar {
+      -webkit-transition: fill 333ms;
+      transition: fill 333ms;
+    }
+    .labels {
+      -webkit-transition: fill 100ms;
+      transition: fill 100ms;
+    }
+    &:nth-child(even) .bar{
+      fill: rgb(227, 233, 233);
+    }
+    &:nth-child(odd) .bar{
+      fill: rgb(241, 243, 242);
+    }
+    &:hover .bar, &:hover .labels {
+      fill: #2CC5C6;
+    }
+  }
+}
+
+#line-chart{
+  .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
 }
