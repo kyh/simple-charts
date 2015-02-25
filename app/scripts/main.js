@@ -65,13 +65,12 @@
 		]);
 		setTimeout(function(){
 			barChart.updateData(updatedData);
-			console.log(updatedData);
 			if (updatedData.length < 4) {
 				updateChart(chartData);
 			} else {
-				updateChart(updatedData.slice(Math.floor(Math.random() * updatedData.length - 1)));
+				updateChart(updatedData.slice(~~(Math.random() * updatedData.length - 2)));
 			}
-		}, Math.floor(Math.random() * 5000) + 5000);
+		}, ~~(Math.random() * 5000) + 5000);
 	})();
 	
 	// Line Chart
