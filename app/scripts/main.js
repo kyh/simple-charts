@@ -60,8 +60,8 @@
 
 	setTimeout(function(){
 		var updatedData = chartData.concat([
-			{ name: 'Aug', data: 70 },
-			{ name: 'Sep', data: 14 }
+			{ label: 'Aug', data: 70 },
+			{ label: 'Sep', data: 14 }
 		]);
 		barChart.updateData(updatedData);
 	}, 5000);
@@ -93,12 +93,24 @@
 	var lineChart = new Chart.LineChart(chartData, lineChartConfig);
 
 	// Pie Chart
-	var piChartData = [{
-		name: 'Complete',
+	var pieChartData = [{
+		label: 'Complete',
 		data: 77
 	}];
 
-	var pieChart = new Chart.PieChart(piChartData);
+	var pieChartConfig = {
+		elementID: '#pie-chart',
+		chartWidth: $('.pie-chart-container')[0].offsetWidth,
+		chartHeight: 400,
+		margin: {
+		    top: 0,
+		    bot: 0,
+		    left: 0,
+		    right: 0
+		}
+	};
+
+	var pieChart = new Chart.PieChart(pieChartData, pieChartConfig);
 
 })(window.Chart);
 
