@@ -1,89 +1,104 @@
 /* jshint devel:true */
-var barChartData = [
-	{
-		name: 'Jan',
-		data: 35
-	},
-	{
-		name: 'Feb',
-		data: 20
-	},
-	{
-		name: 'Mar',
-		data: 28
-	},
-	{
-		name: 'Apr',
-		data: 8
-	},
-	{
-		name: 'May',
-		data: 17
-	},
-	{
-		name: 'Jun',
-		data: 38
-	},
-	{
-		name: 'Jul',
-		data: 20
-	}
-];
+(function(Chart){
+	'use strict';
 
-var barChartConfig = {
-	elementID: '#bar-chart',
-	chartWidth: $('.bar-chart-container')[0].offsetWidth,
-	chartHeight: 400,
-	classes: {
-		group: 'bar-group',
-		bar: 'bar',
-		label: 'labels'
-	},
-	axis: {
-		y: {
-			ticks: 8
+	// Bar Chart
+	var chartData = [
+		{
+			label: 'Jan',
+			data: 35
+		},
+		{
+			label: 'Feb',
+			data: 20
+		},
+		{
+			label: 'Mar',
+			data: 28
+		},
+		{
+			label: 'Apr',
+			data: 8
+		},
+		{
+			label: 'May',
+			data: 17
+		},
+		{
+			label: 'Jun',
+			data: 38
+		},
+		{
+			label: 'Jul',
+			data: 20
 		}
-	},
-	margin: {
-	    top: 20,
-	    bot: 30,
-	    left: 30,
-	    right: 0
-	}
-};
+	];
 
-var barChart = new BarChart(barChartData, barChartConfig);
-
-setTimeout(function(){
-	var updatedData = barChartData.concat([
-		{ name: 'Aug', data: 70 },
-		{ name: 'Sep', data: 14 }
-	]);
-	barChart.updateData(updatedData);
-}, 5000);
-
-var lineChartConfig = {
-	elementID: '#line-chart',
-	chartWidth: $('.line-chart-container')[0].offsetWidth,
-	chartHeight: 400,
-	axis: {
-		y: {
-			ticks: 8
+	var barChartConfig = {
+		elementID: '#bar-chart',
+		chartWidth: $('.bar-chart-container')[0].offsetWidth,
+		chartHeight: 400,
+		classes: {
+			group: 'bar-group',
+			bar: 'bar',
+			label: 'labels'
+		},
+		axis: {
+			y: {
+				ticks: 8
+			}
+		},
+		margin: {
+		    top: 20,
+		    bot: 30,
+		    left: 30,
+		    right: 0
 		}
-	},
-	classes: {
-		group: 'group',
-		point: 'point',
-		line: 'line',
-		label: 'labels'
-	},
-	margin: {
-	    top: 20,
-	    bot: 30,
-	    left: 30,
-	    right: 0
-	}
-};
+	};
 
-var lineChart = new LineChart(barChartData, lineChartConfig);
+	var barChart = new Chart.BarChart(chartData, barChartConfig);
+
+	setTimeout(function(){
+		var updatedData = chartData.concat([
+			{ name: 'Aug', data: 70 },
+			{ name: 'Sep', data: 14 }
+		]);
+		barChart.updateData(updatedData);
+	}, 5000);
+	
+	// Line Chart
+	var lineChartConfig = {
+		elementID: '#line-chart',
+		chartWidth: $('.line-chart-container')[0].offsetWidth,
+		chartHeight: 400,
+		axis: {
+			y: {
+				ticks: 8
+			}
+		},
+		classes: {
+			group: 'group',
+			point: 'point',
+			line: 'line',
+			label: 'labels'
+		},
+		margin: {
+		    top: 20,
+		    bot: 30,
+		    left: 30,
+		    right: 0
+		}
+	};
+
+	var lineChart = new Chart.LineChart(chartData, lineChartConfig);
+
+	// Pie Chart
+	var piChartData = [{
+		name: 'Complete',
+		data: 77
+	}];
+
+	var pieChart = new Chart.PieChart(piChartData);
+
+})(window.Chart);
 

@@ -132,13 +132,18 @@ $grid-tick-color: #EFEFEF;
 #line-chart{
   .line {
     fill: none;
-    stroke: $grey-dark;
+    stroke: $primary-color;
     stroke-width: 1.5px;
   }
   .point {
-    fill: $primary-color;
+    fill: white;
     stroke-width: 2px;
-    stroke: white;
+    stroke: $primary-color;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+    &:hover{
+      fill: $primary-color;
+    }
   }
   .labels {
     -webkit-transition: fill 200ms;
