@@ -58,13 +58,21 @@
 
 	var barChart = new Chart.BarChart(chartData, barChartConfig);
 
-	setTimeout(function(){
-		var updatedData = chartData.concat([
+	(function updateChart(d){
+		var updatedData = d || chartData.concat([
 			{ label: 'Aug', data: 70 },
 			{ label: 'Sep', data: 14 }
 		]);
-		barChart.updateData(updatedData);
-	}, 5000);
+		setTimeout(function(){
+			barChart.updateData(updatedData);
+			console.log(updatedData);
+			if (updatedData.length < 4) {
+				updateChart(chartData);
+			} else {
+				updateChart(updatedData.slice(Math.floor(Math.random() * updatedData.length - 1)));
+			}
+		}, Math.floor(Math.random() * 5000) + 5000);
+	})();
 	
 	// Line Chart
 	var lineChartConfig = {
