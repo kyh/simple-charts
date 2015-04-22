@@ -75,6 +75,12 @@
 			return axis;
 		};
 
+		this.generateArc = function(radius, donutWidth){
+			return d3.svg.arc()
+					.innerRadius(radius - donutWidth)
+					.outerRadius(radius);
+		};
+
 		function generateScales(_data){
 			return {
 				'xScale': d3.scale.ordinal()
