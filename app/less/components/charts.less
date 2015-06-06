@@ -1,0 +1,77 @@
+@primary-color:   #2CC5C6;
+@grey-light:      #F1F3F2;
+@grey-dark:       #E3E9E9;
+@grid-line-color: #EEE;
+@grid-tick-color: #EFEFEF;
+
+.chart {
+  .axis {
+    path {
+      fill: none;
+    }
+    line {
+      stroke: @grid-line-color;
+      shape-rendering: crispEdges;
+    }
+    &.grid {
+      .tick {
+        line {
+          stroke: @grid-tick-color;
+          stroke-dasharray: 2,2;
+        }
+      }
+    }
+  }
+  .axis text, .labels {
+    font-size: 10px;
+  }
+}
+
+#bar-chart{
+  .bar-group {
+    .bar {
+      -webkit-transition: fill 333ms;
+      transition: fill 333ms;
+    }
+    .labels {
+      -webkit-transition: fill 100ms;
+      transition: fill 100ms;
+    }
+    &:nth-child(even) .bar{
+      fill: @grey-dark;
+    }
+    &:nth-child(odd) .bar{
+      fill: @grey-light;
+    }
+    &:hover .bar, &:hover .labels {
+      fill: @primary-color;
+    }
+  }
+}
+
+#line-chart{
+  .line {
+    fill: none;
+    stroke: @primary-color;
+    stroke-width: 1.5px;
+  }
+  .point {
+    fill: white;
+    stroke-width: 2px;
+    stroke: @primary-color;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+    &:hover{
+      fill: @primary-color;
+    }
+  }
+  .labels {
+    -webkit-transition: fill 200ms;
+    transition: fill 200ms;
+  }
+  .group {
+    &:hover .labels {
+      fill: @primary-color;
+    }
+  }
+}
