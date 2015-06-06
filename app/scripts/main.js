@@ -1,6 +1,7 @@
 'use strict';
 
 var BarChart = require('./charts/Bar.js');
+var LineChart = require('./charts/Line.js');
 
 var data = [{
     label: 'Jan',
@@ -26,7 +27,8 @@ var data = [{
   }
 ];
 
-var config = {
+// Bar Chart
+var barChartConfig = {
   elementID: '#bar-chart',
   chartWidth: document.querySelector('.bar-chart-container').offsetWidth,
   chartHeight: 400,
@@ -48,7 +50,7 @@ var config = {
   }
 };
 
-var barChart = new BarChart(data, config);
+var barChart = new BarChart(data, barChartConfig);
 
 (function updateChart(d){
   var updatedData = d || data.concat([
@@ -65,3 +67,28 @@ var barChart = new BarChart(data, config);
   }, ~~(Math.random() * 5000) + 5000);
 })();
 
+// Line Chart
+var lineChartConfig = {
+  elementID: '#line-chart',
+  chartWidth: document.querySelector('.line-chart-container').offsetWidth,
+  chartHeight: 400,
+  axis: {
+    y: {
+      ticks: 8
+    }
+  },
+  classes: {
+    group: 'group',
+    point: 'point',
+    line: 'line',
+    label: 'labels'
+  },
+  margin: {
+      top: 20,
+      bot: 30,
+      left: 30,
+      right: 0
+  }
+};
+
+var lineChart = new LineChart(data, lineChartConfig);
