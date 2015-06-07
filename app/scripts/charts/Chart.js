@@ -27,7 +27,7 @@ function generateSVG() {
     .attr('class', 'grid axis')
     .call(self.axis.yAxis);
 
-  return svg;
+  self.svg = svg;
 }
 
 function generateAxisLines(svg, chart) {
