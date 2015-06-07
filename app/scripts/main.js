@@ -51,6 +51,7 @@ var barChartConfig = {
 };
 
 var barChart = new BarChart(data, barChartConfig);
+console.log(barChart);
 
 (function updateChart(d){
   var updatedData = d || data.concat([
@@ -92,3 +93,5 @@ var lineChartConfig = {
 };
 
 var lineChart = new LineChart(data, lineChartConfig);
+console.log(lineChart);
+
