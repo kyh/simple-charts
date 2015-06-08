@@ -1,15 +1,18 @@
 'use strict';
 
-function setupGraph(config) {
+function setupGraph(type, config) {
   this.chart = {
     height: config.chartHeight - config.margin.top - config.margin.bot,
     width: config.chartWidth - config.margin.left - config.margin.right
   };
-  this.scale = generateScales.call(this);
-  this.axis = generateAxis.call(this);
+
+  if (type === 'bar' || type === 'line') {
+    this.scale = generateScales.call(this);
+    this.axis = generateAxis.call(this);
+  }
 }
 
-function generateSVG() {
+function generateSVG(grid) {
   var self = this;
   var chart = self.chart;
   var margin = self.config.margin;
@@ -19,13 +22,16 @@ function generateSVG() {
       .attr({
         'width': chart.width + margin.left + margin.right,
         'height': chart.height + margin.top + margin.bot,
-      })
-      .append('g')
-      .attr('transform', 'translate('+margin.left+','+margin.top+')');
+      }).append('g');
 
-  svg.append('g')
-    .attr('class', 'grid axis')
-    .call(self.axis.yAxis);
+  if (grid) {
+    svg.attr('transform', 'translate('+margin.left+','+margin.top+')');
+    svg.append('g')
+      .attr('class', 'grid axis')
+      .call(self.axis.yAxis);
+  } else {
+    svg.attr('transform', 'translate(' + ((chart.width/2)+margin.left) + ',' + ((chart.height/2)+margin.top) + ')');
+  }
 
   self.svg = svg;
 }
