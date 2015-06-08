@@ -7,14 +7,16 @@ function LineChart(data, config) {
   this.config = config;
 
   // Setup chart width/height, axis and scales
-  Chart.setupGraph.call(this, config);
+  this.setupGraph(config);
 
   // Generate the Graph
-  this.svg = Chart.generateSVG.call(this);
+  this.generateSVG();
   this.generateLines();
 
   return this;
 }
+
+LineChart.prototype = Object.create(Chart);
 
 LineChart.prototype.generateLines = function(){
   var self = this;
