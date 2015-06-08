@@ -1,29 +1,34 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="D3">
+    <meta name="author" content="Kaiyu Hsu">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
     <title>D3</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="../../dist/css/bootstrap.css" rel="stylesheet"> -->
+    <!-- Bootstrap theme -->
+    <!-- <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+    <!-- Custom styles for this template -->
+    <link href="/styles/app.css" rel="stylesheet">
 
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="../bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+  </head>
+
+  <body>
 
     <div class="container">
       <div class="header">
@@ -31,20 +36,30 @@
       </div>
 
       <div class="row marketing">
+
         <div class="bar-chart-container">
           <h4>Bar Chart</h4>
           <div id="bar-chart" class="chart"></div>
         </div>
+
         <div class="line-chart-container">
           <h4>Line Chart</h4>
           <div id="line-chart" class="chart"></div>
         </div>
-        <div class="pie-chart-container">
-          <h4>Pie Chart</h4>
-          <div class="col-md-6">
-            <div id="pie-chart" class="chart"></div>
+
+        <div class="donut-chart-container">
+          <h4 class="bot-30">Donut Chart</h4>
+          <div class="col-md-4">
+            <div id="donut-chart" class="chart"></div>
+          </div>
+          <div class="col-md-4">
+            <div id="donut-chart2" class="chart"></div>
+          </div>
+          <div class="col-md-4">
+            <div id="donut-chart3" class="chart"></div>
           </div>
         </div>
+
       </div>
 
       <div class="footer">
@@ -52,44 +67,13 @@
       </div>
     </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-        <!-- build:js scripts/plugins.js -->
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tab.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/d3.js"></script>
-        <script src="scripts/GraphCharts.js"></script>
-        <script src="scripts/BarChart.js"></script>
-        <script src="scripts/LineChart.js"></script>
-        <script src="scripts/PieChart.js"></script>
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
-</body>
+    <!--
+    Scripts
+    ==================================================
+    Placed at the end of the document so the pages load faster -->
+    <!-- <script src="scripts/app.js"></script> -->
+    <script src="scripts/vendor.js"></script>
+    <script src="scripts/lib/d3.min.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>
