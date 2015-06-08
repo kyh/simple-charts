@@ -7,14 +7,16 @@ function BarChart(data, config) {
   this.config = config;
 
   // Setup chart width/height, axis and scales
-  Chart.setupGraph.call(this, config);
+  this.setupGraph(config);
 
   // Generate the Graph
-  this.svg = Chart.generateSVG.call(this);
+  this.generateSVG();
   this.generateBars();
 
   return this;
 }
+
+BarChart.prototype = Object.create(Chart);
 
 BarChart.prototype.generateBars = function() {
   // BARS
