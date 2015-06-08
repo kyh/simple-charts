@@ -2,6 +2,7 @@
 
 var BarChart = require('./charts/Bar.js');
 var LineChart = require('./charts/Line.js');
+var DonutChart = require('./charts/Donut.js');
 
 var data = [{
     label: 'Jan',
@@ -26,6 +27,17 @@ var data = [{
     data: 20
   }
 ];
+
+function extend(destination, source) {
+  for (var property in source) {
+    destination[property] = source[property];
+  }
+  return destination;
+}
+
+function copy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
 
 // Bar Chart
 var barChartConfig = {
@@ -95,3 +107,32 @@ var lineChartConfig = {
 var lineChart = new LineChart(data, lineChartConfig);
 console.log(lineChart);
 
+// Donut Chart
+var donutChartConfig = {
+  elementID: '#donut-chart',
+  chartWidth: 150,
+  chartHeight: 150,
+  colorScale: ['#56CB84', '#f1f3f2'],
+  margin: {
+      top: 0,
+      bot: 0,
+      left: 0,
+      right: 0
+  }
+};
+
+var donutChartConfig2 = extend(copy(donutChartConfig), {
+  elementID: '#donut-chart2',
+  colorScale: ['#2cc5c6', '#f1f3f2']
+});
+
+var donutChartConfig3 = extend(copy(donutChartConfig), {
+  elementID: '#donut-chart3',
+  colorScale: ['#58699A', '#f1f3f2']
+});
+
+var donutChart = new DonutChart([].concat(data[0], data[1]), donutChartConfig);
+var donutChart2 = new DonutChart([].concat(data[2], data[3]), donutChartConfig2);
+var donutChart3 = new DonutChart([].concat(data[4], data[5]), donutChartConfig3);
+
+console.log(donutChart);
