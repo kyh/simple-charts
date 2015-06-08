@@ -7,10 +7,10 @@ function BarChart(data, config) {
   this.config = config;
 
   // Setup chart width/height, axis and scales
-  this.setupGraph(config);
+  this.setupGraph('bar', config);
 
   // Generate the Graph
-  this.generateSVG();
+  this.generateSVG(true);
   this.generateBars();
 
   return this;
@@ -95,7 +95,7 @@ BarChart.prototype.updateData = function(newData) {
   self.data = newData;
 
   self.removeAllBars(function(){
-    Chart.setupGraph.call(self, self.config);
+    Chart.setupGraph.call(self, 'bar', self.config);
     svg.selectAll('g.grid.axis')
       .transition().duration(800).ease('sin-in-out')
       .call(self.axis.yAxis);

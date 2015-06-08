@@ -7,10 +7,10 @@ function LineChart(data, config) {
   this.config = config;
 
   // Setup chart width/height, axis and scales
-  this.setupGraph(config);
+  this.setupGraph('line', config);
 
   // Generate the Graph
-  this.generateSVG();
+  this.generateSVG(true);
   this.generateLines();
 
   return this;
