@@ -8,10 +8,10 @@ Charting library for simple and reusable D3 charts.
 ## Usage
 Coming Soon
 
-### Dependencies
+#### Dependencies
 kyCharts is built on top of [d3.js](http://d3js.org/). Please include `d3.js` before kyCharts.
 
-### Supported Browsers
+#### Supported Browsers
 * Google Chrome: latest version
 * Opera 15+ (i.e. webkit version)
 * Safari: latest version
