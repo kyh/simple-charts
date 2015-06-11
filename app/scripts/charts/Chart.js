@@ -36,20 +36,21 @@ function generateSVG(grid) {
   self.svg = svg;
 }
 
-function generateAxisLines(svg, chart) {
+function generateAxisLines() {
   // X & Y AXIS
-  var axis = svg.append('g').attr('class', 'axis');
+  var axis = this.svg.append('g').attr('class', 'axis');
   axis.append('line')
     .attr({
-      'y1': chart.height,
-      'x2': chart.width,
-      'y2': chart.height,
+      'y1': this.chart.height,
+      'x2': this.chart.width,
+      'y2': this.chart.height,
       'stroke-width': 1,
       'class': 'x'
     });
+
   axis.append('line')
     .attr({
-      'y2': chart.height,
+      'y2': this.chart.height,
       'stroke-width': 1,
       'class': 'y'
     });
