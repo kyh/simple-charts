@@ -3,7 +3,7 @@ basicCharts
 
 Basic, beautiful, charting library for simple and reusable D3 charts.
 
-[View Examples](http://kyh.io/D3/dist/) | 
+[View Basic Examples](http://kyh.io/D3/dist/) | 
 
 ## Usage
 Coming Soon
