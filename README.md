@@ -8,10 +8,10 @@ Basic, beautiful, charting library for simple and reusable D3 charts.
 ## Usage
 Coming Soon
 
-### Dependencies
+#### Dependencies
 basicCharts is built on top of [d3.js](http://d3js.org/). Please include `d3.js` before basicCharts.
 
-### Supported Browsers
+#### Supported Browsers
 * Google Chrome: latest version
 * Opera 15+ (i.e. webkit version)
 * Safari: latest version
