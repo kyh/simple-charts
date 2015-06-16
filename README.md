@@ -1,7 +1,7 @@
-kyCharts
+basicCharts
 =======
 
-Charting library for simple and reusable D3 charts.
+Basic, beautiful, charting library for simple and reusable D3 charts.
 
 [View Examples](http://kyh.io/D3/dist/) | 
 
@@ -9,7 +9,7 @@ Charting library for simple and reusable D3 charts.
 Coming Soon
 
 ### Dependencies
-kyCharts is built on top of [d3.js](http://d3js.org/). Please include `d3.js` before kyCharts.
+basicCharts is built on top of [d3.js](http://d3js.org/). Please include `d3.js` before basicCharts.
 
 ### Supported Browsers
 * Google Chrome: latest version
@@ -19,4 +19,5 @@ kyCharts is built on top of [d3.js](http://d3js.org/). Please include `d3.js` be
 * Internet Explorer: 10+
 
 ## API
-Coming soon
+
+More Coming soon
